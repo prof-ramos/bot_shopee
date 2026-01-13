@@ -1,23 +1,25 @@
 # Shopee Affiliate API Bot
 
-Integração com a API de Afiliados da Shopee Brasil para buscar produtos, ofertas e gerar links de rastreamento.
+Integração com a API de Afiliados da Shopee Brasil para buscar produtos, ofertas e gerar links de
+rastreamento.
 
 ## 📋 Sumário
 
-- [Visão Geral](#visão-geral)
-- [Funcionalidades](#funcionalidades)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Configuração](#configuração)
-- [Uso](#uso)
-- [Documentação](#documentação)
-- [Rate Limits](#rate-limits)
-- [Contribuindo](#contribuindo)
-- [Licença](#licença)
+- [Visão Geral](#️-visão-geral)
+- [Funcionalidades](#-funcionalidades)
+- [Pré-requisitos](#-pré-requisitos)
+- [Instalação](#-instalação)
+- [Configuração](#️-configuração)
+- [Uso](#-uso)
+- [Documentação](#-documentação)
+- [Rate Limits](#-rate-limits)
+- [Contribuindo](#-contribuindo)
+- [Licença](#-licença)
 
 ## 👁️ Visão Geral
 
-Este projeto fornece uma interface simplificada para a API de Afiliados da Shopee Brasil, permitindo:
+Este projeto fornece uma interface simplificada para a API de Afiliados da Shopee Brasil,
+permitindo:
 
 - Buscar produtos com filtros e ordenação
 - Consultar ofertas de lojas
@@ -46,7 +48,7 @@ git clone https://github.com/seu-usuario/bot_shopee.git
 cd bot_shopee
 ```
 
-### Python
+### Instalação Python
 
 ```bash
 # Criar ambiente virtual
@@ -56,10 +58,18 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate  # Windows
 
 # Instalar dependências
-pip install requests
+pip install requests python-dotenv
 ```
 
-### Node.js
+#### Via uv (recomendado)
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+```
+
+### Instalação Node.js
 
 ```bash
 # Instalar dependências
@@ -75,18 +85,26 @@ Obtenha suas credenciais no [Portal de Afiliados Shopee](https://shopee.com.br/a
 - `APP_ID` - Seu AppId
 - `APP_SECRET` - Sua chave secreta
 
-### Variáveis de Ambiente (opcional)
+### Variáveis de Ambiente
 
-Crie um arquivo `.env`:
+O projeto utiliza suporte automático a arquivos `.env`.
 
-```bash
-SHOPEE_APP_ID=seu_app_id_aqui
-SHOPEE_APP_SECRET=sua_chave_secreta_aqui
-```
+1. Copie o arquivo de exemplo:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edite o arquivo `.env` com suas credenciais:
+
+   ```env
+   SHOPEE_APP_ID=seu_app_id_aqui
+   SHOPEE_APP_SECRET=sua_chave_secreta_aqui
+   ```
 
 ## 📖 Uso
 
-### Python
+### Uso Python
 
 ```python
 from shopee_api import ShopeeAPI
@@ -109,14 +127,14 @@ for produto in produtos:
 ./scripts/shopee.sh "query { productOfferV2(limit: 5) { nodes { productName price } } }"
 ```
 
-### Node.js
+### Uso Node.js
 
 ```javascript
 const { ShopeeAPI } = require('./shopee-api');
 
 const api = new ShopeeAPI({
-    appId: 'seu_app_id',
-    appSecret: 'sua_chave_secreta'
+  appId: 'seu_app_id',
+  appSecret: 'sua_chave_secreta',
 });
 
 const produtos = await api.buscarProdutos({ limit: 10 });
@@ -132,11 +150,11 @@ console.log(produtos);
 
 A API Shopee possui os seguintes limites:
 
-| Limite | Valor |
-|--------|-------|
-| Requisições por hora | 2000 |
-| Diferença de timestamp | 10 minutos |
-| ScrollId válido por | 30 segundos |
+| Limite                 | Valor           |
+| ---------------------- | --------------- |
+| Requisições por hora   | 2000            |
+| Diferença de timestamp | 10 minutos      |
+| ScrollId válido por    | 30 segundos     |
 | Relatórios disponíveis | Últimos 3 meses |
 
 ## 🔧 Scripts Disponíveis
@@ -154,7 +172,7 @@ npm run buscar --keyword "celular"
 
 ## 📁 Estrutura do Projeto
 
-```
+```text
 bot_shopee/
 ├── docs.md                 # Documentação completa da API
 ├── EXEMPLOS_USO.md         # Exemplos práticos de código
@@ -192,8 +210,10 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 📞 Suporte
 
-Para dúvidas sobre a API Shopee, utilize o [formulário de contato](https://help.shopee.com.br/portal/webform/bbce78695c364ba18c9cbceb74ec9091).
+Para dúvidas sobre a API Shopee, utilize o
+[formulário de contato](https://help.shopee.com.br/portal/webform/bbce78695c364ba18c9cbceb74ec9091).
 
 ---
 
-⚠️ **Aviso**: Mantenha suas credenciais (`APP_SECRET`) em segurança e nunca as commit em repositórios públicos.
+⚠️ **Aviso**: Mantenha suas credenciais (`APP_SECRET`) em segurança e nunca as commit em
+repositórios públicos.

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x:scripts/*.sh)",
+      "Bash(tree:*)",
+      "Bash(python3 scripts/*)",
+      "Bash(python3 -m pip install -r requirements.txt)",
+      "Bash(python3 -m pip index versions:*)",
+      "Bash(python3 -m unittest tests/*)",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(python3:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
